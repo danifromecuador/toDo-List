@@ -1,21 +1,21 @@
 // import './style.css';
+import {add, render} from './functions.js';
 
-const tasksArray = [];
-const tasksContainer = document.querySelector('.tasks-container');
-const render = () => {
-  tasksArray.sort((a, b) => a.index - b.index);
-  tasksContainer.innerHTML = '';
-  for (let i = 0; i < tasksArray.length; i += 1) {
-    const html = `
-      <div class="task">
-        <input type="checkbox" class="checkbox-input">
-        <input type="text" class="text-input" value="${tasksArray[i].description}">
-        <div class="drag-to-order">&#x22EE;</div>
-      </div>
-      <hr>
-    `;
-    tasksContainer.innerHTML += html;
+// ADD A NEW TASK
+const addButton = document.querySelector('.add-button'); // click for add the new task
+addButton.addEventListener('click', () => {
+  add();
+  render();
+  
+});
+
+const addTask = document.querySelector('.add-task'); // the user types a new task
+addTask.addEventListener('keydown', (event) => {
+  if (event.keyCode === 13) {
+    add();
+    render();
   }
-};
+});
 
+// FIRST RENDER WHEN THE PAGE LOADS
 window.onload = render;
