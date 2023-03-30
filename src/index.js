@@ -1,23 +1,6 @@
-import './style.css';
+// import './style.css';
 
-const tasksArray = [
-  {
-    description: 'task 1',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'task 2',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'task 3',
-    completed: false,
-    index: 2,
-  },
-];
-
+const tasksArray = [];
 const tasksContainer = document.querySelector('.tasks-container');
 const render = () => {
   tasksArray.sort((a, b) => a.index - b.index);
