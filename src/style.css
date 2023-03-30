@@ -18,6 +18,12 @@ input {
   outline: none;
 }
 
+.add-button,
+.checkbox-input,
+footer {
+  cursor: pointer;
+}
+
 body {
   background-color: lightgray;
   width: 420px;
