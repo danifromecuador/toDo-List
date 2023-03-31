@@ -1,7 +1,9 @@
-import './style.css';
+// import './style.css';
 import {
   add, render, remove, edit,
 } from './modules/functions.js';
+
+import { strikeThrough } from './modules/interactive.js';
 
 // ADD A NEW TASK
 const addButton = document.querySelector('.add-button'); // clicking add button
@@ -40,6 +42,21 @@ tasksContainer.addEventListener('click', (event) => {
     edit(index);
   }
 });
+
+// STRIKETHROUGH A COMPLETED TASK
+tasksContainer.addEventListener('click', (event) => {
+  const checkBox = event.target.closest('.checkbox-input');
+  if (checkBox) {
+    const checkBoxes = tasksContainer.querySelectorAll('.checkbox-input');
+    const index = Array.from(checkBoxes).indexOf(checkBox);
+    strikeThrough(index);
+  }
+});
+
+
+
+
+
 
 // FIRST RENDER WHEN THE PAGE LOADS
 window.onload = render;
