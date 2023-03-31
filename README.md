@@ -12,7 +12,6 @@ Welcome to my ToDo List project
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
@@ -46,13 +45,7 @@ Welcome to my ToDo List project
 - **The user can add, mark as completed or delete all completed tasks**
 - **The list of tasks will be preserved in local storage**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Awesome Books](https://danifromecuador.github.io/toDo-List/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

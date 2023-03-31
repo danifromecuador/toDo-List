@@ -1,38 +1,45 @@
 import './style.css';
+import {
+  add, render, remove, edit,
+} from './modules/functions.js';
 
-const tasksArray = [
-  {
-    description: 'task 1',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'task 2',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'task 3',
-    completed: false,
-    index: 2,
-  },
-];
+// ADD A NEW TASK
+const addButton = document.querySelector('.add-button'); // clicking add button
+addButton.addEventListener('click', () => {
+  add();
+  render();
+});
 
-const tasksContainer = document.querySelector('.tasks-container');
-const render = () => {
-  tasksArray.sort((a, b) => a.index - b.index);
-  tasksContainer.innerHTML = '';
-  for (let i = 0; i < tasksArray.length; i += 1) {
-    const html = `
-      <div class="task">
-        <input type="checkbox" class="checkbox-input">
-        <input type="text" class="text-input" value="${tasksArray[i].description}">
-        <div class="drag-to-order">&#x22EE;</div>
-      </div>
-      <hr>
-    `;
-    tasksContainer.innerHTML += html;
+const addTask = document.querySelector('.add-task'); // typing enter key
+addTask.addEventListener('keydown', (event) => {
+  if (event.keyCode === 13) {
+    add();
+    render();
   }
-};
+});
 
+// DELETE A TASK
+const tasksContainer = document.querySelector('.tasks-container');
+
+tasksContainer.addEventListener('click', (event) => {
+  const deleteTaskIcon = event.target.closest('.delete-task-icon');
+  if (deleteTaskIcon) {
+    const deleteTaskIcons = tasksContainer.querySelectorAll('.delete-task-icon');
+    const index = Array.from(deleteTaskIcons).indexOf(deleteTaskIcon);
+    remove(index);
+    render();
+  }
+});
+
+// EDIT A TASK
+tasksContainer.addEventListener('click', (event) => {
+  const textInput = event.target.closest('.text-input');
+  if (textInput) {
+    const textInputs = tasksContainer.querySelectorAll('.text-input');
+    const index = Array.from(textInputs).indexOf(textInput);
+    edit(index);
+  }
+});
+
+// FIRST RENDER WHEN THE PAGE LOADS
 window.onload = render;

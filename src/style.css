@@ -4,8 +4,6 @@
   padding: 0;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 14px;
-
-  /* border: 1px solid red; */
 }
 
 hr {
@@ -20,6 +18,7 @@ input {
 
 .add-button,
 .checkbox-input,
+.delete-task-icon,
 footer {
   cursor: pointer;
 }
@@ -46,8 +45,12 @@ footer {
   align-items: center;
 }
 
+.add-task-container {
+  justify-content: space-between;
+}
+
 .add-task {
-  width: 100%;
+  width: 90%;
 }
 
 .add-button {
@@ -55,7 +58,7 @@ footer {
 }
 
 .text-input {
-  width: 85%;
+  width: 75%;
 }
 
 .task {
@@ -69,6 +72,10 @@ footer {
 }
 
 /* DOM ///////////////////////////////////////// */
+.hide {
+  display: none;
+}
+
 .drag-to-order {
   width: 10px;
 }
