@@ -12,6 +12,7 @@ Welcome to my ToDo List project
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
@@ -45,7 +46,13 @@ Welcome to my ToDo List project
 - **The user can add, mark as completed or delete all completed tasks**
 - **The list of tasks will be preserved in local storage**
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [ToDo List](https://danifromecuador.github.io/toDo-List/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -57,7 +64,7 @@ Welcome to my ToDo List project
   https://git-scm.com/downloads and install it).
 - Step 2: Once you have installed git you can clone this project using the command below:
   ```
-  git clone https://github.com/danifromecuador/books
+  git clone git@github.com:danifromecuador/toDo-List.git
   ```
 - Step 3: Once you have cloned this repo navigate to the folder that contains
   the repository.
