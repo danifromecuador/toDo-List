@@ -3,7 +3,7 @@ import {
   add, render, remove, edit,
 } from './modules/functions.js';
 
-import { strikeThrough } from './modules/interactive.js';
+import { strikeThrough, clearAll } from './modules/interactive.js';
 
 // ADD A NEW TASK
 const addButton = document.querySelector('.add-button'); // clicking add button
@@ -54,7 +54,12 @@ tasksContainer.addEventListener('click', (event) => {
   }
 });
 
-
+// CLEAR ALL COMPLETED TASKS
+const clearAllButton = document.querySelector('.clear-all-completed');
+clearAllButton.addEventListener('click', () => {
+  clearAll();
+  render();
+});
 
 
 
