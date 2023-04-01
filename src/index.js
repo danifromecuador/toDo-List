@@ -50,6 +50,7 @@ tasksContainer.addEventListener('click', (event) => {
     const checkBoxes = tasksContainer.querySelectorAll('.checkbox-input');
     const index = Array.from(checkBoxes).indexOf(checkBox);
     strikeThrough(index);
+    render();
   }
 });
 

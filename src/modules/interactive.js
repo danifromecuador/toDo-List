@@ -7,11 +7,8 @@ const strikeThrough = (index) => {
   if (checkBoxes[index].checked) {
     tasksArray[index].completed = true;
     localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
-
-    textInput[index].classList.add('strike-through');
   }
   else {
-    textInput[index].classList.remove('strike-through');
     tasksArray[index].completed = false;
     localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
   }
