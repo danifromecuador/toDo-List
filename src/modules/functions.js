@@ -40,18 +40,17 @@ const render = () => {
   const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
   tasksArray.sort((a, b) => a.index - b.index);
   tasksContainer.innerHTML = '';
-  
-  let checked = "";
-  let strike = "";
+
+  let checked = '';
+  let strike = '';
 
   for (let i = 0; i < tasksArray.length; i += 1) {
     if (tasksArray[i].completed) {
-      checked = "checked";
-      strike = "strike-through";
-    }
-    else {
-      checked = "";
-      strike = "";
+      checked = 'checked';
+      strike = 'strike-through';
+    } else {
+      checked = '';
+      strike = '';
     }
     const html = `
       <div class="task">

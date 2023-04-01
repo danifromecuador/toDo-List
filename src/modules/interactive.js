@@ -1,26 +1,29 @@
-const strikeThrough = (index) => {
-  const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
-  const checkBoxes = document.querySelectorAll('.checkbox-input');
-  const textInput = document.querySelectorAll('.text-input');
-  if (checkBoxes[index].checked) {
-    tasksArray[index].completed = true;
-    localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
+class TODO {
+  strikeThrough(index) {
+    this.tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
+    const checkBoxes = document.querySelectorAll('.checkbox-input');
+    if (checkBoxes[index].checked) {
+      this.tasksArray[index].completed = true;
+      localStorage.setItem('tasksArray', JSON.stringify(this.tasksArray));
+    } else {
+      this.tasksArray[index].completed = false;
+      localStorage.setItem('tasksArray', JSON.stringify(this.tasksArray));
+    }
   }
-  else {
-    tasksArray[index].completed = false;
-    localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
-  }
-};
+}
 
 const clearAll = () => {
   const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
-  for (let i = 0; i < tasksArray.length; i++) {
-    if(tasksArray[i].completed) {
+  for (let i = 0; i < tasksArray.length; i += 1) {
+    if (tasksArray[i].completed) {
       tasksArray.splice(i, 1);
-      i--;
+      i -= 1;
     }
+  }
+  for (let i = 1; i <= tasksArray.length; i += 1) {
+    tasksArray[i - 1].index = i;
   }
   localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
 };
 
-export {strikeThrough, clearAll};
+export { TODO, clearAll };

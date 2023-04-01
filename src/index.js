@@ -1,9 +1,9 @@
-// import './style.css';
+import './style.css';
 import {
   add, render, remove, edit,
 } from './modules/functions.js';
 
-import { strikeThrough, clearAll } from './modules/interactive.js';
+import { TODO, clearAll } from './modules/interactive.js';
 
 // ADD A NEW TASK
 const addButton = document.querySelector('.add-button'); // clicking add button
@@ -22,7 +22,6 @@ addTask.addEventListener('keydown', (event) => {
 
 // DELETE A TASK
 const tasksContainer = document.querySelector('.tasks-container');
-
 tasksContainer.addEventListener('click', (event) => {
   const deleteTaskIcon = event.target.closest('.delete-task-icon');
   if (deleteTaskIcon) {
@@ -44,12 +43,13 @@ tasksContainer.addEventListener('click', (event) => {
 });
 
 // STRIKETHROUGH A COMPLETED TASK
+const todo = new TODO();
 tasksContainer.addEventListener('click', (event) => {
   const checkBox = event.target.closest('.checkbox-input');
   if (checkBox) {
     const checkBoxes = tasksContainer.querySelectorAll('.checkbox-input');
     const index = Array.from(checkBoxes).indexOf(checkBox);
-    strikeThrough(index);
+    todo.strikeThrough(index);
     render();
   }
 });
@@ -60,9 +60,6 @@ clearAllButton.addEventListener('click', () => {
   clearAll();
   render();
 });
-
-
-
 
 // FIRST RENDER WHEN THE PAGE LOADS
 window.onload = render;
