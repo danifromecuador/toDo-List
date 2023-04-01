@@ -79,3 +79,7 @@ footer {
 .drag-to-order {
   width: 10px;
 }
+
+.strike-through {
+  text-decoration: line-through;
+}
