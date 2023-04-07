@@ -52,6 +52,7 @@ export const remove = (index) => {
     tasksArray[i - 1].index = i;
   }
   localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
+  render();
 };
 
 // EDIT A TASK
