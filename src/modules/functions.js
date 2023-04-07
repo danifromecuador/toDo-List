@@ -1,42 +1,6 @@
-// ADD A NEW TASK
-const addTask = document.querySelector('.add-task');
-
-const add = () => {
-  if (addTask.value !== '') {
-    const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
-    tasksArray.push({ completed: false, description: addTask.value });
-    for (let i = 1; i <= tasksArray.length; i += 1) {
-      tasksArray[i - 1].index = i;
-    }
-    localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
-  }
-  addTask.value = '';
-};
-
-// DELETE A TASK
-const remove = (index) => {
-  const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
-  tasksArray.splice(index, 1);
-  for (let i = 1; i <= tasksArray.length; i += 1) {
-    tasksArray[i - 1].index = i;
-  }
-  localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
-};
-
-// EDIT A TASK
-const edit = (index) => {
-  const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
-  const textInputs = document.querySelectorAll('.text-input');
-  textInputs[index].addEventListener('change', () => {
-    tasksArray[index].description = textInputs[index].value;
-    localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
-  });
-};
-
 // RENDER
-const tasksContainer = document.querySelector('.tasks-container');
-
-const render = () => {
+export const render = () => {
+  const tasksContainer = document.querySelector('.tasks-container');
   const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
   tasksArray.sort((a, b) => a.index - b.index);
   tasksContainer.innerHTML = '';
@@ -46,15 +10,46 @@ const render = () => {
         <input type="checkbox" class="checkbox-input">
         <input type="text" class="text-input" value="${tasksArray[i].description}">
         <div class="delete-task-icon">&#x1F5D1;</div>
-        <!-- <div class="drag-to-order">&#x22EE;</div> -->        
+        <!-- <div class="drag-to-order">&#x22EE;</div> -->
       </div>
-      <hr>
+      
     `;
     tasksContainer.innerHTML += html;
   }
 };
 
-// EXPORT FUNCTIONS
-export {
-  add, render, remove, edit,
+// ADD A NEW TASK
+export const add = (addTask) => {
+  const addTaskInput = document.querySelector('.add-task');
+  if (addTask !== '') {
+    const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
+    tasksArray.push({ completed: false, description: addTask });
+    for (let i = 1; i <= tasksArray.length; i += 1) {
+      tasksArray[i - 1].index = i;
+    }
+    localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
+  }
+  addTaskInput.value = '';
+  render();
+};
+
+// DELETE A TASK
+export const remove = (index) => {
+  const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
+  tasksArray.splice(index, 1);
+  for (let i = 1; i <= tasksArray.length; i += 1) {
+    tasksArray[i - 1].index = i;
+  }
+  localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
+  render();
+};
+
+// EDIT A TASK
+export const edit = (index) => {
+  const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
+  const textInputs = document.querySelectorAll('.text-input');
+  textInputs[index].addEventListener('change', () => {
+    tasksArray[index].description = textInputs[index].value;
+    localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
+  });
 };
