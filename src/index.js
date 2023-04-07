@@ -1,4 +1,4 @@
-import './style.css';
+// import './style.css';
 import {
   add, render, remove, edit,
 } from './modules/functions.js';
@@ -8,14 +8,15 @@ import { TODO, clearAll } from './modules/interactive.js';
 // ADD A NEW TASK
 const addButton = document.querySelector('.add-button'); // clicking add button
 addButton.addEventListener('click', () => {
-  add();
-  render();
+  const addTask = document.querySelector('.add-task');
+  add(addTask);
 });
 
 const addTask = document.querySelector('.add-task'); // typing enter key
 addTask.addEventListener('keydown', (event) => {
   if (event.keyCode === 13) {
-    add();
+    const addTask = document.querySelector('.add-task').value;
+    add(addTask);
     render();
   }
 });
