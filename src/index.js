@@ -8,7 +8,8 @@ import { TODO, clearAll } from './modules/interactive.js';
 // ADD A NEW TASK
 const addButton = document.querySelector('.add-button'); // clicking add button
 addButton.addEventListener('click', () => {
-  const addTask = document.querySelector('.add-task');
+  let addTask = document.querySelector('.add-task');
+  addTask = addTask.value;
   add(addTask);
 });
 
@@ -41,6 +42,11 @@ tasksContainer.addEventListener('click', (event) => {
     edit(index);
   }
 });
+
+
+
+
+
 
 // STRIKETHROUGH A COMPLETED TASK
 const todo = new TODO();

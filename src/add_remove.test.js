@@ -36,6 +36,9 @@ describe('remove function', () => {
 
 
 describe('editing function', () => {
+  test('should edit the first task', () => {
+    
+  });
 });
 
 describe('updating completed function', () => {

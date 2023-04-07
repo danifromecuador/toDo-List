@@ -19,9 +19,9 @@ export const render = () => {
     const html = `
       <div class="task">
         <input type="checkbox" class="checkbox-input" ${checked}>
-        <input type="text" class="text-input ${strike}" value="${tasksArray[i].description}">
+        <input type="text" class="text-input ${strike}" value="${tasksArray[i].description}">        
+        <!-- <div class="drag-to-order">&#x1F4BE;&#xFE0E;</div>  -->
         <div class="delete-task-icon">&#x1F5D1;</div>
-        <!-- <div class="drag-to-order">&#x22EE;</div> -->
       </div>
       
     `;
