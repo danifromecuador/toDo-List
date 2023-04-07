@@ -33,3 +33,13 @@ describe('remove function', () => {
     expect(container.children.length).toBe(1);
   });
 });
+
+
+describe('editing function', () => {
+});
+
+describe('updating completed function', () => {
+});
+
+describe('clear all completed function', () => {
+});
