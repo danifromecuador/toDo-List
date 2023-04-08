@@ -56,11 +56,11 @@ export const remove = (index) => {
 };
 
 // EDIT A TASK
-export const edit = (index) => {
+export const edit = (index, userInput) => {
   const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
   const textInputs = document.querySelectorAll('.text-input');
   textInputs[index].addEventListener('change', () => {
-    tasksArray[index].description = textInputs[index].value;
+    tasksArray[index].description = textInputs[index].value || userInput;
     localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
   });
 };

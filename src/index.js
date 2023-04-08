@@ -39,7 +39,8 @@ tasksContainer.addEventListener('click', (event) => {
   if (textInput) {
     const textInputs = tasksContainer.querySelectorAll('.text-input');
     const index = Array.from(textInputs).indexOf(textInput);
-    edit(index);
+    let userInput = "";
+    edit(index, userInput);
   }
 });
 

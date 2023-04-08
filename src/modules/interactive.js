@@ -1,4 +1,4 @@
-class TODO {
+export class TODO {
   strikeThrough(index) {
     this.tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
     const checkBoxes = document.querySelectorAll('.checkbox-input');
@@ -12,7 +12,7 @@ class TODO {
   }
 }
 
-const clearAll = () => {
+export const clearAll = () => {
   const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
   for (let i = 0; i < tasksArray.length; i += 1) {
     if (tasksArray[i].completed) {
@@ -25,5 +25,3 @@ const clearAll = () => {
   }
   localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
 };
-
-export { TODO, clearAll };
