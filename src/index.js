@@ -6,7 +6,8 @@ import {
 // ADD A NEW TASK
 const addButton = document.querySelector('.add-button'); // clicking add button
 addButton.addEventListener('click', () => {
-  const addTask = document.querySelector('.add-task');
+  let addTask = document.querySelector('.add-task');
+  addTask = addTask.value;
   add(addTask);
 });
 
@@ -37,8 +38,33 @@ tasksContainer.addEventListener('click', (event) => {
   if (textInput) {
     const textInputs = tasksContainer.querySelectorAll('.text-input');
     const index = Array.from(textInputs).indexOf(textInput);
-    edit(index);
+    let userInput = "";
+    edit(index, userInput);
   }
+});
+
+
+
+
+
+
+// STRIKETHROUGH A COMPLETED TASK
+const todo = new TODO();
+tasksContainer.addEventListener('click', (event) => {
+  const checkBox = event.target.closest('.checkbox-input');
+  if (checkBox) {
+    const checkBoxes = tasksContainer.querySelectorAll('.checkbox-input');
+    const index = Array.from(checkBoxes).indexOf(checkBox);
+    todo.strikeThrough(index);
+    render();
+  }
+});
+
+// CLEAR ALL COMPLETED TASKS
+const clearAllButton = document.querySelector('.clear-all-completed');
+clearAllButton.addEventListener('click', () => {
+  clearAll();
+  render();
 });
 
 // FIRST RENDER WHEN THE PAGE LOADS

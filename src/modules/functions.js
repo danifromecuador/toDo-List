@@ -7,10 +7,12 @@ export const render = () => {
   for (let i = 0; i < tasksArray.length; i += 1) {
     const html = `
       <div class="task">
+        <input type="checkbox" class="checkbox-input" ${checked}>
+        <input type="text" class="text-input ${strike}" value="${tasksArray[i].description}">        
+        <!-- <div class="drag-to-order">&#x1F4BE;&#xFE0E;</div>  -->
         <input type="checkbox" class="checkbox-input">
         <input type="text" class="text-input" value="${tasksArray[i].description}">
         <div class="delete-task-icon">&#x1F5D1;</div>
-        <!-- <div class="drag-to-order">&#x22EE;</div> -->
       </div>
       
     `;
@@ -45,11 +47,11 @@ export const remove = (index) => {
 };
 
 // EDIT A TASK
-export const edit = (index) => {
+export const edit = (index, userInput) => {
   const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
   const textInputs = document.querySelectorAll('.text-input');
   textInputs[index].addEventListener('change', () => {
-    tasksArray[index].description = textInputs[index].value;
+    tasksArray[index].description = textInputs[index].value || userInput;
     localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
   });
 };
