@@ -3,8 +3,6 @@ import {
   add, render, remove, edit,
 } from './modules/functions.js';
 
-import { TODO, clearAll } from './modules/interactive.js';
-
 // ADD A NEW TASK
 const addButton = document.querySelector('.add-button'); // clicking add button
 addButton.addEventListener('click', () => {
@@ -24,6 +22,7 @@ addTask.addEventListener('keydown', (event) => {
 
 // DELETE A TASK
 const tasksContainer = document.querySelector('.tasks-container');
+
 tasksContainer.addEventListener('click', (event) => {
   const deleteTaskIcon = event.target.closest('.delete-task-icon');
   if (deleteTaskIcon) {
